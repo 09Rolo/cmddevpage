@@ -24,13 +24,15 @@ function loaded() {
 
 
 
-
-
-
-
+var introplayed = false
 var elozocmd = ""
 
 function pressed(event) {
+    if (!introplayed) {
+        document.getElementById("intro").play()
+        introplayed = true
+    }
+
     if (event.isComposing || event.keyCode === 229) {
         return;
     }  
@@ -107,6 +109,7 @@ function submitcommand(tartalom) {
                 <p class="orange inner">insta / instagram - <span class="green">Instagram</span></p>
                 <p class="orange inner">x / twitter - <span class="green">X</span></p>
                 <p class="orange inner">transl / fordító - <span class="green">Google Fordító</span></p>
+                <p class="orange inner">plist - <span class="green">Youtube playlistek megnyitása</span></p>
                 <p class="orange inner">g [src(keresés) VAGY lnk(link megnyitása)] [keresendő szöveg vagy link] - <span class="green">Google</span></p>
                 <p class="orange inner">gmail [fiók száma(0 - valameddig)] - <span class="green">Gmail fiók megnyitása</span></p>
                 <p class="orange inner">film [film címe] - <span class="green">Film keresése</span></p>
@@ -139,7 +142,14 @@ function submitcommand(tartalom) {
             typeszoveg += `<p class="orange inner">X megnyitása...</p>`
             opentab("https://www.google.com/search?q=Google+ford%C3%ADt%C3%B3")
             
+        } else if (tartalom == "plist") {
+
+            typeszoveg += `<p class="orange inner">Youtube playlistek megnyitása</p>`
+            opentab("https://www.youtube.com/@rolandkiss1370/playlists")
+
         }
+
+
 
 
         else if (tartalom.split("\xa0")[0] == "g") {
@@ -159,6 +169,8 @@ function submitcommand(tartalom) {
                 }
             }
         }
+
+
 
         else if (tartalom.split("\xa0")[0] == "gmail") {
             if (tartalom.split("\xa0")[1]) {
@@ -190,7 +202,6 @@ function submitcommand(tartalom) {
         }
 
 
-
         else if (tartalom == "cls" || tartalom == "clear" || tartalom == "clr") {
             clearconsole()
         }
@@ -206,7 +217,6 @@ function submitcommand(tartalom) {
 
         //document.getElementById("console").innerHTML += typeszoveg
         if (!(tartalom === "cls" || tartalom === "clr" || tartalom === "clear")) {
-            console.log(tartalom)
             type(typeszoveg)
         }
     }
@@ -244,7 +254,6 @@ function clearconsole() {
 
 function type(what, mastime) {
     var time = mastime || 10
-    console.log(time)
 
     var before = document.getElementById("before")
 
