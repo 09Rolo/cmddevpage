@@ -1,0 +1,322 @@
+
+
+:root {
+    --dark: black;
+    --color: lightgray;
+    --dark-gray: rgb(20, 20, 20);
+    --gray: rgb(50, 50, 50);
+    --light-gray: rgb(100, 100, 100);
+    
+    --bg-color: rgb(30, 30, 30);
+    --red-theme: rgb(100, 0, 0);
+    --red-underline: rgb(250, 30, 30);
+
+    --font-main: cmd, sans-serif;
+
+    --red: rgb(100, 0, 0);
+    --green: rgb(10, 155, 10);
+    --blue: rgb(100, 150, 255);
+    --orange: rgb(255, 135, 80);
+}
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+body {
+    min-width: 100%;
+    max-width: 100%;
+
+    /*min-height: 100vh;
+    max-height: 100vh;*/
+
+    background-color: var(--bg-color);
+
+    font-family: var(--font-main);
+    color: var(--color);
+
+    overflow-x: hidden;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+  
+
+::-webkit-scrollbar-thumb {
+    background: var(--red-theme);
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: var(--red-underline);
+}
+
+
+
+
+.cant_select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+
+
+
+
+
+
+#fuggony {
+    height: 100%;
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+}
+
+#fuggony {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.99);
+    animation-fill-mode: forwards;
+    animation-name: fuggony;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+}
+
+@keyframes fuggony {
+    from {width: 100%;}
+    to {width: 0px;}
+}
+
+
+#betolto {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9;
+
+    background: linear-gradient(-45deg, var(--red-theme), black, black);
+    background-size: 200% 200%;
+
+    animation: betoltoanim 15s ease infinite;
+}
+
+
+@keyframes betoltoanim {
+    0% {
+        background-position: 100% 100%
+    }
+
+    50% {
+        background-position: 20% 20%
+    }
+
+    100% {
+        background-position: 100% 100%
+    }
+}
+
+
+
+
+
+.lds-ring,
+.lds-ring div {
+  box-sizing: border-box;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid currentColor;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: currentColor transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+#betolto #betolto_szoveg {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--color);
+}
+
+#betolto #betolto_szoveg h3 {
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 20px;
+}
+
+#betolto #betolto_szoveg h3::before {
+    content: "(";
+}
+#betolto #betolto_szoveg h3::after {
+    content: ")";
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+@font-face {
+    font-family: cmd;
+    src: url("./Web437_Robotron_A7100.woff");
+}
+
+
+
+.main {
+    width: 100%;
+    height: fit-content;
+    padding: 50px;
+}
+
+
+
+#commanddiv {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    margin-left: -20px;
+}
+
+
+#commanddiv h1 {
+    font-size: 25px;
+}
+
+#commanddiv h2 {
+    font-size: 35px;
+    color: var(--color);
+    animation-name: villogas;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes villogas {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+
+
+#command {
+    border: none;
+    background-color: transparent !important;
+    color: var(--color);
+    font-family: var(--font-main);
+    font-size: 25px;
+    width: fit-content;
+    min-width: 1px;
+}
+
+
+
+
+p {
+    font-size: 25px;
+    line-height: 1.1em;
+}
+
+
+
+
+.red {
+    color: var(--red);
+}
+
+.green {
+    color: var(--green);
+}
+
+.blue {
+    color: var(--blue);
+}
+
+.orange {
+    color: var(--orange);
+}
+
+.gray {
+    color: var(--light-gray);
+}
+
+
+.gray.cant_select {
+    font-weight: bolder;
+}
+
+
+.inner {
+    text-indent: 15px;
+}
