@@ -58,7 +58,6 @@ function pressed(event) {
             let tartslice = curr_tart.slice(0, tart_len - tart_slice_that.length)
             
             document.getElementById("command").innerText = tartslice
-            elozocmd = tartslice
         }
 
     } else if (event.key == "Space" || event.keyCode == "32") {  
@@ -72,6 +71,7 @@ function pressed(event) {
 
     } else if (event.key == "ArrowUp" || event.keyCode == "38") {
 
+        console.log(elozocmd)
         document.getElementById("command").innerText = elozocmd
 
     } else if (event.key.length == 1) {
@@ -113,6 +113,8 @@ function submitcommand(tartalom) {
                 <p class="orange inner">g [src(keresés) VAGY lnk(link megnyitása)] [keresendő szöveg vagy link] - <span class="green">Google</span></p>
                 <p class="orange inner">gmail [fiók száma(0 - valameddig)] - <span class="green">Gmail fiók megnyitása</span></p>
                 <p class="orange inner">film [film címe] - <span class="green">Film keresése</span></p>
+                <p class="orange inner">sorozat [sorozat címe(rickandmorty , familyguy / fmguy)] [nyelv] - <span class="green">Sorozat megnyitása</span></p>
+
                 <p class="orange inner">cls / clr / clear - <span class="green">Console törlése</span></p>
             `
 
@@ -167,6 +169,10 @@ function submitcommand(tartalom) {
                     typeszoveg += `<p class="orange inner">A <span class="blue">${tartalom.split("\xa0")[2]}</span> link megnyitása</p>`
                     opentab("http://" + tartalom.split("\xa0")[2])
                 }
+            } else {
+
+                typeszoveg = `<p class="gray cant_select">X:\\Users\\vendeg>${tartalom}</p><p class="red inner">Helytelen használat. Írd be, hogy <span class="blue">'help'</span> a segítséghez!</>`
+
             }
         }
 
@@ -200,6 +206,53 @@ function submitcommand(tartalom) {
                 opentab("https://www.google.com/search?q=Legjobb+filmek")
             }
         }
+
+
+
+
+
+        else if (tartalom.split("\xa0")[0] == "sorozat") {
+            if (tartalom.split("\xa0")[1]) {
+
+                if (tartalom.split("\xa0")[1] == "rickandmorty") {
+                    if (tartalom.split("\xa0")[2] == "en") {
+                        
+                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása angolul, magyarhoz <span class="blue">'sorozar rickandmorty hu'</span></p>`
+                        opentab("https://ww.yesmovies.ag/search.html?q=rick+and+morty")
+
+                    } else if (tartalom.split("\xa0")[2] == "hu") {
+
+                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása magyarul, angolhoz <span class="blue">'sorozar rickandmorty en'</span></p>`
+                        opentab("https://moviedrive.hu/sorozat/?id=651")
+                        
+                    } else {
+
+                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása angolul, magyarhoz <span class="blue">'sorozar rickandmorty hu'</span></p>`
+                        opentab("https://ww.yesmovies.ag/search.html?q=rick+and+morty")
+
+                    }
+
+                } 
+                
+                else if (tartalom.split("\xa0")[1] == "familyguy" || tartalom.split("\xa0")[1] == "fmguy") {
+
+                    typeszoveg += `<p class="orange inner">Family Guy megnyitása</p>`
+                    opentab("")
+
+                } 
+
+                //
+
+            } else {
+
+                typeszoveg = `<p class="gray cant_select">X:\\Users\\vendeg>${tartalom}</p><p class="red inner">Helytelen használat. Írd be, hogy <span class="blue">'help'</span> a segítséghez!</>`
+
+            }
+        }
+
+
+
+        
 
 
         else if (tartalom == "cls" || tartalom == "clear" || tartalom == "clr") {
