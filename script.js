@@ -237,7 +237,7 @@ function submitcommand(tartalom) {
                 else if (tartalom.split("\xa0")[1] == "familyguy" || tartalom.split("\xa0")[1] == "fmguy") {
 
                     typeszoveg += `<p class="orange inner">Family Guy megnyitása</p>`
-                    opentab("")
+                    opentab("https://online-filmek.ac/sorozat/11029-family-guy-22-evad")
 
                 } 
 
