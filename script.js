@@ -241,6 +241,14 @@ function submitcommand(tartalom) {
 
                 } 
 
+
+                else if (tartalom.split("\xa0")[1] == "futurama" || tartalom.split("\xa0")[1] == "futu") {
+
+                    typeszoveg += `<p class="orange inner">Futurama megnyitása</p>`
+                    opentab("https://hurawatch2.to/tv/futurama-bwymn/12-1")
+
+                } 
+
                 //
 
             } else {
