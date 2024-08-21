@@ -113,7 +113,7 @@ function submitcommand(tartalom) {
                 <p class="orange inner">g [src(keresés) VAGY lnk(link megnyitása)] [keresendő szöveg vagy link] - <span class="green">Google</span></p>
                 <p class="orange inner">gmail [fiók száma(0 - valameddig)] - <span class="green">Gmail fiók megnyitása</span></p>
                 <p class="orange inner">film [film címe] - <span class="green">Film keresése</span></p>
-                <p class="orange inner">sorozat [sorozat címe(rickandmorty , familyguy / fmguy)] [nyelv] - <span class="green">Sorozat megnyitása</span></p>
+                <p class="orange inner">sorozat [sorozat címe(rickandmorty , familyguy / fmguy, futurama / futu, solaropposites / sopp / solar / vigyázzufók / vufo, gravityfalls / gfalls)] [nyelv] - <span class="green">Sorozat megnyitása</span></p>
 
                 <p class="orange inner">cls / clr / clear - <span class="green">Console törlése</span></p>
             `
@@ -217,17 +217,17 @@ function submitcommand(tartalom) {
                 if (tartalom.split("\xa0")[1] == "rickandmorty") {
                     if (tartalom.split("\xa0")[2] == "en") {
                         
-                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása angolul, magyarhoz <span class="blue">'sorozar rickandmorty hu'</span></p>`
+                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása angolul, magyarhoz <span class="blue">'sorozat rickandmorty hu'</span></p>`
                         opentab("https://ww.yesmovies.ag/search.html?q=rick+and+morty")
 
                     } else if (tartalom.split("\xa0")[2] == "hu") {
 
-                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása magyarul, angolhoz <span class="blue">'sorozar rickandmorty en'</span></p>`
+                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása magyarul, angolhoz <span class="blue">'sorozat rickandmorty en'</span></p>`
                         opentab("https://moviedrive.hu/sorozat/?id=651")
                         
                     } else {
 
-                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása angolul, magyarhoz <span class="blue">'sorozar rickandmorty hu'</span></p>`
+                        typeszoveg += `<p class="orange inner">Rick és morty megnyitása angolul, magyarhoz <span class="blue">'sorozat rickandmorty hu'</span></p>`
                         opentab("https://ww.yesmovies.ag/search.html?q=rick+and+morty")
 
                     }
@@ -249,7 +249,64 @@ function submitcommand(tartalom) {
 
                 } 
 
+
+                else if (tartalom.split("\xa0")[1] == "solaropposites" || tartalom.split("\xa0")[1] == "solar" || tartalom.split("\xa0")[1] == "sopp" || tartalom.split("\xa0")[1] == "vigyázzufók" || tartalom.split("\xa0")[1] == "vufo") {
+                    if (tartalom.split("\xa0")[2] == "en") {
+                        
+                        typeszoveg += `<p class="orange inner">Solar opposites megnyitása angolul, magyarhoz <span class="blue">'sorozat sopp hu'</span></p>`
+                        opentab("https://hurawatch2.to/tv/solar-opposites-zklo1")
+
+                    } else if (tartalom.split("\xa0")[2] == "hu") {
+
+                        typeszoveg += `<p class="orange inner">Solar opposites megnyitása magyarul, angolhoz <span class="blue">'sorozat sopp en'</span></p>`
+                        opentab("https://moviedrive.hu/sorozat/?id=2163")
+                        
+                    } else {
+
+                        typeszoveg += `<p class="orange inner">Solar opposites megnyitása angolul, magyarhoz <span class="blue">'sorozat sopp hu'</span></p>`
+                        opentab("https://hurawatch2.to/tv/solar-opposites-zklo1")
+
+                    }
+                }
+
+
+                else if (tartalom.split("\xa0")[1] == "gravityfalls" || tartalom.split("\xa0")[1] == "gfalls") {
+                    if (tartalom.split("\xa0")[2] == "en") {
+                        
+                        typeszoveg += `<p class="orange inner">Gravity falls megnyitása angolul, magyarhoz <span class="blue">'sorozat gfalls hu'</span></p>`
+                        opentab("https://ww.yesmovies.ag/search.html?q=gravity+falls")
+
+                    } else if (tartalom.split("\xa0")[2] == "hu") {
+
+                        typeszoveg += `<p class="orange inner">Gravity falls megnyitása magyarul, angolhoz <span class="blue">'sorozat gfalls en'</span></p>`
+                        opentab("https://jobbmintatv.pro/online/rejtelyek_varoskaja")
+                        
+                    } else {
+
+                        typeszoveg += `<p class="orange inner">Gravity falls megnyitása angolul, magyarhoz <span class="blue">'sorozat gfalls hu'</span></p>`
+                        opentab("https://ww.yesmovies.ag/search.html?q=gravity+falls")
+
+                    }
+                }
+
+
                 //
+                else {
+
+                    if (tartalom.split("\xa0")[1]) {
+
+                        let search = ""
+        
+                        for(let i = 1; i < tartalom.split("\xa0").length; i++) {
+                            search += " " + tartalom.split("\xa0")[i]
+                        }
+        
+                        typeszoveg += `<p class="orange inner">A <span class="blue">${search}</span> sorozat keresése</p>`
+                        opentab("https://www.google.com/search?q=" + search + "+teljes+részek+magyarul+hd")
+                        
+                    }
+    
+                }
 
             } else {
 
